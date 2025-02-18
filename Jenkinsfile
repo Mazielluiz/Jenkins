@@ -1,13 +1,13 @@
 pipeline {
     agent any
      tools { 
-        nodejs "Node 16.20.2" 
+        nodejs "Node 23.8.0" 
     }
     
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/gfavarelli/AppTestePipe.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/Mazielluiz/Jenkins.git']]])
             }
         }
         
@@ -17,6 +17,7 @@ pipeline {
                 sh 'npm run build'
             }
         }
+
         
         stage('Run Unit Tests') {
             steps {
