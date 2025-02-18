@@ -1,7 +1,7 @@
 pipeline {
     agent any
-     tools { 
-        nodejs "Node 23.8.0" 
+    tools { 
+        nodejs "NodeJS" // Corrigido o nome da ferramenta
     }
     
     stages {
@@ -13,15 +13,15 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'npm install'
-                sh 'npm run build'
+                bat 'npm install'
+                bat 'npm run build'
             }
         }
 
         
         stage('Run Unit Tests') {
             steps {
-                sh 'npm run test'
+                bat 'npm run test'
             }
         }
     }
